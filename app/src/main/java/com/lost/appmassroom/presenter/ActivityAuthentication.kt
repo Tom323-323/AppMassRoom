@@ -3,9 +3,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.lost.appmassroom.databinding.ActivityAuthenticationBinding
-import com.lost.appmassroom.domain.Registration
-import com.lost.appmassroom.domain.SignIn
-import com.lost.appmassroom.presenter.model.UserModel
+import com.lost.appmassroom.domain.usecase.Registration
+import com.lost.appmassroom.domain.usecase.SignIn
+import com.lost.appmassroom.domain.model.UserModel
 
 
 class ActivityAuthentication : AppCompatActivity() {
@@ -24,7 +24,7 @@ class ActivityAuthentication : AppCompatActivity() {
             val mail = bindingAuth.etMail.text.toString()
             val passw = bindingAuth.etPassword.toString()
 
-            registr.registr(UserModel(email = mail, passsword = passw,id=""))
+            registr.registr(UserModel(id="", email = mail, passsword = passw))
 
         })
 
