@@ -7,7 +7,6 @@ import com.lost.appmassroom.databinding.ActivityAuthenticationBinding
 import com.lost.appmassroom.domain.usecase.Registration
 import com.lost.appmassroom.domain.usecase.SignIn
 import com.lost.appmassroom.domain.model.UserModel
-import com.lost.appmassroom.domain.repository.UserRepository
 
 
 class ActivityAuthentication : AppCompatActivity() {
@@ -16,9 +15,9 @@ class ActivityAuthentication : AppCompatActivity() {
     override fun onCreate(s: Bundle?) {
         super.onCreate(s)
 
-        val userRepository = UserRepositoryImplement()
-        val registr = Registration(userRepository = userRepository)
-        val sign = SignIn(userRepository = userRepository)
+        val userRepository by lazy {UserRepositoryImplement()}
+        val registr by lazy {Registration(userRepository = userRepository)}
+        val sign by lazy {SignIn(userRepository = userRepository)}
 
         bindingAuth = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(bindingAuth.root)
