@@ -2,10 +2,12 @@ package com.lost.appmassroom.presenter
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.lost.appmassroom.data.repository.UserRepositoryImplement
 import com.lost.appmassroom.databinding.ActivityAuthenticationBinding
 import com.lost.appmassroom.domain.usecase.Registration
 import com.lost.appmassroom.domain.usecase.SignIn
 import com.lost.appmassroom.domain.model.UserModel
+import com.lost.appmassroom.domain.repository.UserRepository
 
 
 class ActivityAuthentication : AppCompatActivity() {
@@ -14,8 +16,9 @@ class ActivityAuthentication : AppCompatActivity() {
     override fun onCreate(s: Bundle?) {
         super.onCreate(s)
 
-        val registr = Registration()
-        val sign = SignIn()
+        val userRepository = UserRepositoryImplement()
+        val registr = Registration(userRepository = userRepository)
+        val sign = SignIn(userRepository = userRepository)
 
         bindingAuth = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(bindingAuth.root)
@@ -25,6 +28,14 @@ class ActivityAuthentication : AppCompatActivity() {
             val passw = bindingAuth.etPassword.toString()
 
             registr.registr(UserModel(id="", email = mail, passsword = passw))
+
+        })
+
+        bindingAuth.btnSign.setOnClickListener(View.OnClickListener {
+            val mail = bindingAuth.etMail.text.toString()
+            val passw = bindingAuth.etPassword.toString()
+
+            sign.signIn(UserModel(id="", email = mail, passsword = passw))
 
         })
 
