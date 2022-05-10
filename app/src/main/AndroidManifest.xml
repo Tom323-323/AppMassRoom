@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppMassRoom">
         <activity
-            android:name=".presenter.MainActivity"
+            android:name=".presenter.ActivityAuthentication"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

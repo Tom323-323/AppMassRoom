@@ -3,10 +3,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.lost.appmassroom.data.repository.UserRepositoryImplement
+import com.lost.appmassroom.data.storage.Room
+import com.lost.appmassroom.data.storage.UserStorage
 import com.lost.appmassroom.databinding.ActivityAuthenticationBinding
 import com.lost.appmassroom.domain.usecase.Registration
 import com.lost.appmassroom.domain.usecase.SignIn
 import com.lost.appmassroom.domain.model.UserModel
+
 
 
 class ActivityAuthentication : AppCompatActivity() {
@@ -15,7 +18,7 @@ class ActivityAuthentication : AppCompatActivity() {
     override fun onCreate(s: Bundle?) {
         super.onCreate(s)
 
-        val userRepository by lazy {UserRepositoryImplement()}
+        val userRepository by lazy { UserRepositoryImplement(userStorage = Room(context = applicationContext)) }
         val registr by lazy {Registration(userRepository = userRepository)}
         val sign by lazy {SignIn(userRepository = userRepository)}
 
