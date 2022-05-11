@@ -8,6 +8,10 @@ import androidx.room.Room
 import com.lost.appmassroom.data.model.UserDataModel
 import com.lost.appmassroom.data.storage.room.AppDB
 import com.lost.appmassroom.data.storage.room.EntityUser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
 
 
 class Room(context: Context): UserStorage {
@@ -17,9 +21,12 @@ class Room(context: Context): UserStorage {
 
 
     override fun registr(userData: UserDataModel) {
-        val entityUser = EntityUser(id = 0L, idData = userData.idData, email = userData.email, password = userData.passsword)
-        userDao.addUser(entityUser)
-        Log.e("AAA", "${entityUser.idData.toString()}")
+        CoroutineScope(Dispatchers.IO).launch{
+            val entityUser = EntityUser(idData = userData.idData, email = userData.email, password = userData.passsword)
+            userDao.addUser(entityUser)
+            Log.e("AAA", "${entityUser.idData.toString()}")
+        }
+
 
     }
 

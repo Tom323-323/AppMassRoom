@@ -8,22 +8,22 @@ import com.lost.appmassroom.data.model.UserDataModel
 interface EntityUserDAO {
 
     @Query("SELECT*FROM userdata")
-    fun getAll(): List<EntityUser>
+    suspend fun getAll(): List<EntityUser>
 
     @Query("SELECT email FROM userdata ")
-    fun getAllUserEmail(): List<String>
+    suspend fun getAllUserEmail(): List<String>
 
     @Query("SELECT * FROM userdata WHERE email == :emailUser")
-    fun getEmail (emailUser: String):List<EntityUser>
+    suspend fun getEmail (emailUser: String):List<EntityUser>
 
     @Insert
-    fun addUser (user:EntityUser)
+    suspend fun addUser (user:EntityUser)
 
     @Delete
-    fun deleteUser(user: EntityUser)
+    suspend fun deleteUser(user: EntityUser)
 
     @Update
-    fun updateUsers(user: EntityUser)
+    suspend fun updateUsers(user: EntityUser)
 
 
 }
