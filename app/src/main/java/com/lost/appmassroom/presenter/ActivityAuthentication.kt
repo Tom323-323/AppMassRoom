@@ -32,7 +32,5 @@ class ActivityAuthentication : AppCompatActivity() {
         bindingAuth.btnSign.setOnClickListener(View.OnClickListener {
             sign.signIn(UserModel(userTime = "", email = mail, passsword = passw))
         })
-
     }
-
 }
