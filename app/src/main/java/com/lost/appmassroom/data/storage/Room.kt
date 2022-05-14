@@ -28,7 +28,7 @@ class Room(context: Context): UserStorage {
 
         CoroutineScope(Dispatchers.IO).launch {
             val user = userDao.getEmail(userData.email.toString())
-            Log.e("AAA", user.password.toString())
+            //Log.e("AAA", user.password.toString())
             Log.e("AAA", user.email.toString())
             Log.e("AAA", user.id.toString())
 
