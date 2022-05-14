@@ -16,7 +16,7 @@ class UserRepositoryImplement(private val userStorage: UserStorage): UserReposit
     }
 
     fun mapToStorage(user:UserModel):UserDataModel{
-        return UserDataModel(idData = user.id, email = user.email, passsword = user.passsword)
+        return UserDataModel(idData = user.userTime, email = user.email, passsword = user.passsword)
     }
 
 }

@@ -1,4 +1,4 @@
 package com.lost.appmassroom.domain.model
 
-class UserModel (val id: String?, val email: String?, val passsword: String?){
+class UserModel (val userTime: String?, val email: String?, val passsword: String?){
 }

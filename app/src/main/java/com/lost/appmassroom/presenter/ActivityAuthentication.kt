@@ -9,8 +9,6 @@ import com.lost.appmassroom.domain.usecase.Registration
 import com.lost.appmassroom.domain.usecase.SignIn
 import com.lost.appmassroom.domain.model.UserModel
 
-
-
 class ActivityAuthentication : AppCompatActivity() {
     lateinit var bindingAuth: ActivityAuthenticationBinding
 
@@ -24,24 +22,17 @@ class ActivityAuthentication : AppCompatActivity() {
         bindingAuth = ActivityAuthenticationBinding.inflate(layoutInflater)
         setContentView(bindingAuth.root)
 
+        val mail = bindingAuth.etMail.text.toString()
+        val passw = bindingAuth.etPassword.toString()
+
         bindingAuth.btnReg.setOnClickListener(View.OnClickListener {
-            val mail = bindingAuth.etMail.text.toString()
-            val passw = bindingAuth.etPassword.toString()
-
-            registr.registr(UserModel(id="", email = mail, passsword = passw))
-
+            registr.registr(UserModel(userTime = "", email = mail, passsword = passw))
         })
 
         bindingAuth.btnSign.setOnClickListener(View.OnClickListener {
-            val mail = bindingAuth.etMail.text.toString()
-            val passw = bindingAuth.etPassword.toString()
-
-            sign.signIn(UserModel(id="", email = mail, passsword = passw))
-
+            sign.signIn(UserModel(userTime = "", email = mail, passsword = passw))
         })
 
     }
-
-
 
 }
