@@ -7,12 +7,12 @@ import com.lost.appmassroom.domain.repository.UserRepository
 
 class UserRepositoryImplement(private val userStorage: UserStorage): UserRepository {
 
-    override fun sign(userData: UserModel) {
-        userStorage.signIn(mapToStorage(userData))
-    }
-
     override fun registr(userData: UserModel) {
         userStorage.registr(mapToStorage(userData))
+    }
+
+    override fun sign(userData: UserModel) {
+        userStorage.signIn(mapToStorage(userData))
     }
 
     fun mapToStorage(user:UserModel):UserDataModel{

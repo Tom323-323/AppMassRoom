@@ -4,7 +4,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.lost.appmassroom.data.repository.UserRepositoryImplement
 import com.lost.appmassroom.data.storage.Room
-import com.lost.appmassroom.data.storage.UserStorage
 import com.lost.appmassroom.databinding.ActivityAuthenticationBinding
 import com.lost.appmassroom.domain.usecase.Registration
 import com.lost.appmassroom.domain.usecase.SignIn
