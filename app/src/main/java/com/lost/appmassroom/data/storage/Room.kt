@@ -32,7 +32,6 @@ class Room(context: Context): UserStorage {
             Log.e("AAA", user.email.toString())
             Log.e("AAA", user.id.toString())
             Log.e("AAA", user.idData.toString())
-
         }
     }
 }
