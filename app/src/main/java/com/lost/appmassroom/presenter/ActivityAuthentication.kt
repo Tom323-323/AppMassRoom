@@ -26,11 +26,15 @@ class ActivityAuthentication : AppCompatActivity() {
         val passw = bindingAuth.etPassword.toString()
 
         bindingAuth.btnReg.setOnClickListener(View.OnClickListener {
-            registr.registr(UserModel(userTime = "", email = mail, passsword = passw))
+            registr.registr(UserModel(userTime = "",
+                                      email = mail,
+                                      passsword = passw))
         })
 
         bindingAuth.btnSign.setOnClickListener(View.OnClickListener {
-            sign.signIn(UserModel(userTime = "", email = mail, passsword = passw))
+            sign.signIn(UserModel(userTime = "",
+                                  email = mail,
+                                  passsword = passw))
         })
     }
 }
